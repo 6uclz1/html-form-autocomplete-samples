@@ -1283,3 +1283,120 @@ th {
     grid-template-columns: 1fr;
   }
 }
+
+.unified-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid #e8edf5;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 1px 0 rgba(15, 33, 59, 0.04);
+  backdrop-filter: blur(10px);
+}
+
+.unified-header .header-inner {
+  width: min(1360px, calc(100% - 32px));
+  max-width: none;
+  padding: 16px 0;
+}
+
+.unified-header .brand {
+  color: var(--ink);
+  font-size: 1.08rem;
+  font-weight: 850;
+}
+
+.unified-header .site-nav {
+  display: flex;
+  gap: 22px;
+  margin: 0;
+  font-size: 0.96rem;
+  font-weight: 850;
+}
+
+.unified-header .site-nav a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.unified-header .site-nav a:hover,
+.unified-header .site-nav .active {
+  color: var(--accent);
+}
+
+.unified-footer {
+  border-top: 1px solid #e8edf5;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.unified-footer p {
+  width: min(1360px, calc(100% - 32px));
+  max-width: none;
+  margin-bottom: 5px;
+}
+
+.unified-footer a {
+  color: var(--accent);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.home-layout .header-inner,
+.home-layout .page,
+.home-layout .page-footer p {
+  width: min(1360px, calc(100% - 32px));
+  max-width: none;
+}
+
+.home-card-grid {
+  grid-template-columns: repeat(4, minmax(300px, 1fr));
+}
+
+.home-link-card {
+  min-height: 96px;
+  padding: 16px;
+}
+
+.home-link-card span:nth-child(2) {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1260px) {
+  .home-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .unified-header .header-inner {
+    display: flex;
+    width: min(100% - 32px, 640px);
+    padding: 14px 0;
+  }
+
+  .unified-header .site-nav {
+    display: none;
+  }
+
+  .unified-header .header-inner::after {
+    content: "☰";
+    margin-left: auto;
+    color: var(--ink);
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+
+  .unified-footer p {
+    width: min(100% - 32px, 640px);
+  }
+
+  .home-layout .page {
+    width: min(100% - 32px, 640px);
+  }
+
+  .home-card-grid {
+    grid-template-columns: 1fr;
+  }
+}
