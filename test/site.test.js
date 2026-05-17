@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { existsSync, readFileSync } from "node:fs";
 import { test } from "node:test";
 import * as parse5 from "parse5";
+import { formatSerialNumber } from "../assets/main.js";
 
 const root = new URL("../", import.meta.url);
 
@@ -173,6 +174,27 @@ test("client JavaScript prevents submit and does not persist or transmit values"
   assert.match(js, /preventDefault\(\)/);
   assert.match(js, /reportValidity\(\)/);
   assert.doesNotMatch(js, /localStorage|sessionStorage|indexedDB|document\.cookie|fetch\(|XMLHttpRequest|sendBeacon|console\.log/);
+});
+
+test("serial number formatter uppercases and inserts hyphens every four characters", () => {
+  assert.equal(formatSerialNumber("abcd1234efgh"), "ABCD-1234-EFGH");
+  assert.equal(formatSerialNumber("1234-5678 9012 3456"), "1234-5678-9012-3456");
+  assert.equal(formatSerialNumber("ab!@cd_ef"), "ABCD-EF");
+  assert.equal(formatSerialNumber("abcd".repeat(10)), "ABCD-ABCD-ABCD-ABCD-ABCD-ABCD-ABCD-ABCD");
+});
+
+test("serial number inputs opt into automatic grouping", () => {
+  for (const page of ["forms/serial-number.html", "forms/all-in-one.html"]) {
+    const document = parseHtml(page);
+    const serialInput = walk(document, (node) => {
+      if (node.nodeName !== "input") return false;
+      const inputAttrs = attrs(node);
+      return inputAttrs.id === "serial-number";
+    });
+
+    assert.equal(serialInput.length, 1, `${page} should contain one serial number input`);
+    assert.equal(attrs(serialInput[0])["data-serial-format"], "groups-of-4");
+  }
 });
 
 test("GitHub Pages workflow deploys static files without credentials", () => {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>All-in-One Input Form</title>
     <link rel="stylesheet" href="../assets/styles.css?v=66ee7f4">
-    <script src="../assets/main.js" defer></script>
+    <script type="module" src="../assets/main.js?v=serial-format" defer></script>
   </head>
   <body>
     <header class="site-header unified-header">
@@ -94,8 +94,8 @@
             <span class="step-badge">6</span>
             <div class="field-body">
               <label for="serial-number"><span class="line-icon" aria-hidden="true">▤</span>シリアル番号</label>
-              <input id="serial-number" name="serial-number" type="text" autocomplete="off" spellcheck="false" autocapitalize="characters" pattern="[A-Z0-9-]{8,39}" placeholder="例）1234-5678-9012-3456" aria-describedby="serial-number-help" title="英大文字、数字、ハイフンで入力してください">
-              <p id="serial-number-help" class="sr-compact">英大文字、数字、ハイフンで入力してください。</p>
+              <input id="serial-number" name="serial-number" type="text" autocomplete="off" spellcheck="false" autocapitalize="characters" pattern="[A-Z0-9-]{8,39}" maxlength="39" data-serial-format="groups-of-4" placeholder="例）1234-5678-9012-3456" aria-describedby="serial-number-help" title="英大文字、数字、ハイフンで入力してください">
+              <p id="serial-number-help" class="sr-compact">英大文字と数字を入力すると、4桁ごとにハイフンを自動挿入します。</p>
               <p class="tag-row"><span>type: text</span><span>autocomplete: off</span></p>
             </div>
           </div>
