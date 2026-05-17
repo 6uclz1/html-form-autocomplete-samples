@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login Form Samples</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+    <script src="../assets/main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../index.html">HTML Form Autofill Samples</a>
+        <nav class="site-nav" aria-label="Sample pages">
+          <a href="contact.html">Contact</a>
+          <a href="account-login.html">Login</a>
+          <a href="account-register.html">Register</a>
+          <a href="password-change.html">Password</a>
+          <a href="payment.html">Payment</a>
+          <a href="otp.html">OTP</a>
+          <a href="serial-number.html">Serial</a>
+          <a href="all-in-one.html">All</a>
+        </nav>
+      </div>
+    </header>
+    <main class="page">
+      <section class="section">
+        <h1>ログインフォーム</h1>
+        <div class="warning">
+          <p>このサイトはHTMLフォーム属性の学習用サンプルです。実際のメールアドレス、電話番号、クレジットカード番号、パスワード、OTPを入力しないでください。入力内容は送信・保存されません。</p>
+        </div>
+        <p class="lede">ユーザー名には <code>username</code>、既存パスワードには <code>current-password</code> を指定します。</p>
+      </section>
+
+      <section class="sample-card" aria-labelledby="login-form-title">
+        <div>
+          <h2 id="login-form-title">試せるフォーム</h2>
+          <form autocomplete="on">
+            <div class="form-grid">
+              <div class="field">
+                <label for="username">ユーザー名またはメールアドレス <span class="required-marker" aria-hidden="true">*</span></label>
+                <input id="username" name="username" type="text" autocomplete="username" required aria-describedby="username-help">
+                <p id="username-help" class="help">ログインID、ユーザー名、アカウント名に使います。</p>
+              </div>
+              <div class="field">
+                <label for="current-password">現在のパスワード <span class="required-marker" aria-hidden="true">*</span></label>
+                <input id="current-password" name="current-password" type="password" autocomplete="current-password" required aria-describedby="current-password-help">
+                <p id="current-password-help" class="help">保存済みパスワードの自動入力対象であることを示します。</p>
+              </div>
+            </div>
+            <button type="submit">入力内容を確認</button>
+            <p class="result" data-form-result role="status" aria-live="polite"></p>
+          </form>
+        </div>
+        <div>
+          <h2>推奨HTML</h2>
+          <pre><code>&lt;input id="username" name="username" type="text" autocomplete="username" required&gt;
+&lt;input id="current-password" name="current-password" type="password" autocomplete="current-password" required&gt;</code></pre>
+        </div>
+        <div>
+          <h2>属性の意味と注意点</h2>
+          <ul class="attribute-list">
+            <li><code>autocomplete="username"</code> はユーザー名またはアカウント名を示します。</li>
+            <li><code>autocomplete="current-password"</code> は既存パスワードの入力欄に使います。</li>
+            <li>メール専用ログインでは <code>type="email"</code> と <code>autocomplete="username"</code> の組み合わせも検討できます。</li>
+          </ul>
+        </div>
+        <div>
+          <h2>MDN URL</h2>
+          <ul class="source-list">
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/password">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/password</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="page-footer">
+      <p>No input values are sent, stored, logged, or displayed.</p>
+    </footer>
+  </body>
+</html>

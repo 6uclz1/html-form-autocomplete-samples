@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Payment Form Samples</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+    <script src="../assets/main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../index.html">HTML Form Autofill Samples</a>
+        <nav class="site-nav" aria-label="Sample pages">
+          <a href="contact.html">Contact</a>
+          <a href="account-login.html">Login</a>
+          <a href="account-register.html">Register</a>
+          <a href="password-change.html">Password</a>
+          <a href="payment.html">Payment</a>
+          <a href="otp.html">OTP</a>
+          <a href="serial-number.html">Serial</a>
+          <a href="all-in-one.html">All</a>
+        </nav>
+      </div>
+    </header>
+    <main class="page">
+      <section class="section">
+        <h1>決済フォーム</h1>
+        <div class="warning">
+          <p>このサイトはHTMLフォーム属性の学習用サンプルです。実際のメールアドレス、電話番号、クレジットカード番号、パスワード、OTPを入力しないでください。入力内容は送信・保存されません。</p>
+        </div>
+        <p class="lede">カード番号は数量ではなく識別子なので <code>type="number"</code> ではなく <code>type="text"</code> と <code>inputmode="numeric"</code> を使います。請求先と配送先は <code>billing</code>、<code>shipping</code> で区別します。</p>
+      </section>
+
+      <section class="sample-card" aria-labelledby="payment-form-title">
+        <div>
+          <h2 id="payment-form-title">試せるフォーム</h2>
+          <form autocomplete="on">
+            <div class="form-grid">
+              <div class="field">
+                <label for="cc-name">カード名義 <span class="required-marker" aria-hidden="true">*</span></label>
+                <input id="cc-name" name="cc-name" type="text" autocomplete="cc-name" required>
+              </div>
+              <div class="field">
+                <label for="cc-number">カード番号 <span class="required-marker" aria-hidden="true">*</span></label>
+                <input id="cc-number" name="cc-number" type="text" inputmode="numeric" autocomplete="cc-number" pattern="[0-9 ]{12,23}" required aria-describedby="cc-number-help" title="数字とスペースで12から23文字を入力してください">
+                <p id="cc-number-help" class="help">数字とスペースを許容する例です。</p>
+              </div>
+              <div class="field">
+                <label for="cc-exp">有効期限 <span class="required-marker" aria-hidden="true">*</span></label>
+                <input id="cc-exp" name="cc-exp" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" pattern="[0-9]{2}/[0-9]{2}" required aria-describedby="cc-exp-help" title="MM/YY形式で入力してください">
+                <p id="cc-exp-help" class="help">単一欄では <code>cc-exp</code> を使います。</p>
+              </div>
+              <div class="field">
+                <label for="cc-csc">セキュリティコード <span class="required-marker" aria-hidden="true">*</span></label>
+                <input id="cc-csc" name="cc-csc" type="text" inputmode="numeric" autocomplete="cc-csc" pattern="[0-9]{3,4}" maxlength="4" required aria-describedby="cc-csc-help" title="3から4桁の数字を入力してください">
+                <p id="cc-csc-help" class="help">CVV、CVC、CIDなどの表記があります。</p>
+              </div>
+              <div class="field">
+                <label for="cc-exp-month">有効期限 月</label>
+                <input id="cc-exp-month" name="cc-exp-month" type="text" inputmode="numeric" autocomplete="cc-exp-month" pattern="[0-9]{2}" maxlength="2" aria-describedby="cc-exp-month-help" title="2桁の月を入力してください">
+                <p id="cc-exp-month-help" class="help">分割欄の月には <code>cc-exp-month</code> を使います。</p>
+              </div>
+              <div class="field">
+                <label for="cc-exp-year">有効期限 年</label>
+                <input id="cc-exp-year" name="cc-exp-year" type="text" inputmode="numeric" autocomplete="cc-exp-year" pattern="[0-9]{2,4}" maxlength="4" aria-describedby="cc-exp-year-help" title="2桁または4桁の年を入力してください">
+                <p id="cc-exp-year-help" class="help">分割欄の年には <code>cc-exp-year</code> を使います。</p>
+              </div>
+              <div class="field">
+                <label for="billing-postal-code">請求先 郵便番号</label>
+                <input id="billing-postal-code" name="billing-postal-code" type="text" autocomplete="billing postal-code">
+              </div>
+              <div class="field">
+                <label for="shipping-postal-code">配送先 郵便番号</label>
+                <input id="shipping-postal-code" name="shipping-postal-code" type="text" autocomplete="shipping postal-code">
+              </div>
+            </div>
+            <button type="submit">入力内容を確認</button>
+            <p class="result" data-form-result role="status" aria-live="polite"></p>
+          </form>
+        </div>
+        <div>
+          <h2>推奨HTML</h2>
+          <pre><code>&lt;input id="cc-name" name="cc-name" type="text" autocomplete="cc-name" required&gt;
+&lt;input id="cc-number" name="cc-number" type="text" inputmode="numeric" autocomplete="cc-number" pattern="[0-9 ]{12,23}" required&gt;
+&lt;input id="cc-exp" name="cc-exp" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" pattern="[0-9]{2}/[0-9]{2}" required&gt;
+&lt;input id="cc-csc" name="cc-csc" type="text" inputmode="numeric" autocomplete="cc-csc" pattern="[0-9]{3,4}" maxlength="4" required&gt;</code></pre>
+        </div>
+        <div>
+          <h2>属性の意味と注意点</h2>
+          <ul class="attribute-list">
+            <li><code>cc-name</code>、<code>cc-number</code>、<code>cc-exp</code>、<code>cc-csc</code> は決済手段の標準トークンです。</li>
+            <li><code>billing postal-code</code> と <code>shipping postal-code</code> は請求先・配送先の混同を避けます。</li>
+            <li>候補表示はブラウザー、OS、保存済みカード情報、ユーザー設定に依存します。</li>
+          </ul>
+        </div>
+        <div>
+          <h2>MDN URL</h2>
+          <ul class="source-list">
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/inputmode">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/inputmode</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pattern">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pattern</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="page-footer">
+      <p>No input values are sent, stored, logged, or displayed.</p>
+    </footer>
+  </body>
+</html>

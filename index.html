@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTML Form Autofill Samples</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="index.html">HTML Form Autofill Samples</a>
+        <nav class="site-nav" aria-label="Sample pages">
+          <a href="forms/contact.html">Contact</a>
+          <a href="forms/account-login.html">Login</a>
+          <a href="forms/account-register.html">Register</a>
+          <a href="forms/password-change.html">Password</a>
+          <a href="forms/payment.html">Payment</a>
+          <a href="forms/otp.html">OTP</a>
+          <a href="forms/serial-number.html">Serial</a>
+          <a href="forms/all-in-one.html">All</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="hero">
+        <div>
+          <h1>HTML入力フォームの正しい使い方を試す静的サンプル</h1>
+          <p class="lede">メール、電話番号、ログイン、パスワード、OTP、クレジットカード、シリアル番号について、標準の <code>type</code>、<code>autocomplete</code>、<code>inputmode</code>、<code>pattern</code>、<code>required</code>、<code>label</code> を組み合わせた例を確認できます。</p>
+          <div class="warning">
+            <p>このサイトはHTMLフォーム属性の学習用サンプルです。実際のメールアドレス、電話番号、クレジットカード番号、パスワード、OTPを入力しないでください。入力内容は送信・保存されません。</p>
+          </div>
+          <p>ブラウザー、OS、保存済みプロファイル、パスワードマネージャー、決済情報の保存状態、ユーザー設定によって、実際の自動入力挙動は変わります。このサイトの目的は、各プラットフォームが自動入力しやすい標準的なHTMLを提示することです。</p>
+        </div>
+        <div class="visual-map">
+          <div class="mock-field">
+            <span>email</span>
+            <code>&lt;input type="email" autocomplete="email"&gt;</code>
+          </div>
+          <div class="mock-field">
+            <span>password</span>
+            <code>&lt;input type="password" autocomplete="current-password"&gt;</code>
+          </div>
+          <div class="mock-field">
+            <span>payment</span>
+            <code>&lt;input type="text" inputmode="numeric" autocomplete="cc-number"&gt;</code>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="pages-title">
+        <h2 id="pages-title">サンプルページ</h2>
+        <div class="link-grid">
+          <a class="link-card" href="forms/contact.html">氏名、メール、電話番号</a>
+          <a class="link-card" href="forms/account-login.html">ログインIDと現在のパスワード</a>
+          <a class="link-card" href="forms/account-register.html">アカウント作成と新しいパスワード</a>
+          <a class="link-card" href="forms/password-change.html">パスワード変更</a>
+          <a class="link-card" href="forms/payment.html">クレジットカードと請求先・配送先</a>
+          <a class="link-card" href="forms/otp.html">ワンタイムコード</a>
+          <a class="link-card" href="forms/serial-number.html">シリアル番号・ライセンスキー</a>
+          <a class="link-card" href="forms/all-in-one.html">すべてのフォーム一覧</a>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="sources-title">
+        <h2 id="sources-title">主要なMDN出典</h2>
+        <ul class="source-list">
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete">autocomplete HTML attribute - MDN</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/email">input type="email" - MDN</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/tel">input type="tel" - MDN</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/password">input type="password" - MDN</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/inputmode">inputmode global attribute - MDN</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pattern">pattern HTML attribute - MDN</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/required">required HTML attribute - MDN</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label">label HTML element - MDN</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Constraint_validation">Constraint validation - MDN</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>Static sample site. No input values are sent, stored, logged, or displayed.</p>
+    </footer>
+  </body>
+</html>

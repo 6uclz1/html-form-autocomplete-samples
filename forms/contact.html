@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Form Samples</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+    <script src="../assets/main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../index.html">HTML Form Autofill Samples</a>
+        <nav class="site-nav" aria-label="Sample pages">
+          <a href="contact.html">Contact</a>
+          <a href="account-login.html">Login</a>
+          <a href="account-register.html">Register</a>
+          <a href="password-change.html">Password</a>
+          <a href="payment.html">Payment</a>
+          <a href="otp.html">OTP</a>
+          <a href="serial-number.html">Serial</a>
+          <a href="all-in-one.html">All</a>
+        </nav>
+      </div>
+    </header>
+    <main class="page">
+      <section class="section">
+        <h1>連絡先フォーム</h1>
+        <div class="warning">
+          <p>このサイトはHTMLフォーム属性の学習用サンプルです。実際のメールアドレス、電話番号、クレジットカード番号、パスワード、OTPを入力しないでください。入力内容は送信・保存されません。</p>
+        </div>
+        <p class="lede">ブラウザー、OS、保存済みプロファイルによって候補の出方は変わります。ここでは氏名、メールアドレス、電話番号に標準的なトークンを指定します。</p>
+      </section>
+
+      <section class="sample-card" aria-labelledby="contact-form-title">
+        <div>
+          <h2 id="contact-form-title">試せるフォーム</h2>
+          <form autocomplete="on">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">氏名</label>
+                <input id="name" name="name" type="text" autocomplete="name" required>
+                <p class="help">フルネームには <code>autocomplete="name"</code> を使います。</p>
+              </div>
+              <div class="field">
+                <label for="email">メールアドレス <span class="required-marker" aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-help">
+                <p id="email-help" class="help">必須項目です。ブラウザー標準のメール形式検証を使います。</p>
+              </div>
+              <div class="field">
+                <label for="tel">電話番号</label>
+                <input id="tel" name="tel" type="tel" autocomplete="tel" inputmode="tel">
+                <p class="help">国や地域で形式が違うため、汎用例では厳しい <code>pattern</code> を付けません。</p>
+              </div>
+              <div class="field">
+                <label for="mobile-tel">携帯電話番号</label>
+                <input id="mobile-tel" name="mobile-tel" type="tel" autocomplete="mobile tel">
+                <p class="help"><code>mobile tel</code> で携帯電話番号の用途を示します。</p>
+              </div>
+            </div>
+            <button type="submit">入力内容を確認</button>
+            <p class="result" data-form-result role="status" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div>
+          <h2>推奨HTML</h2>
+          <pre><code>&lt;label for="email"&gt;メールアドレス&lt;/label&gt;
+&lt;input id="email" name="email" type="email" autocomplete="email" required&gt;
+
+&lt;label for="tel"&gt;電話番号&lt;/label&gt;
+&lt;input id="tel" name="tel" type="tel" autocomplete="tel" inputmode="tel"&gt;</code></pre>
+        </div>
+
+        <div>
+          <h2>属性の意味と注意点</h2>
+          <ul class="attribute-list">
+            <li><code>type="email"</code> はメール形式の制約検証を有効にします。</li>
+            <li><code>type="tel"</code> は電話番号向けの入力UIを示唆しますが、形式検証は自動では行われません。</li>
+            <li><code>autocomplete="email"</code> と <code>autocomplete="tel"</code> は保存済み連絡先の候補を出しやすくします。</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>MDN URL</h2>
+          <ul class="source-list">
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/email">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/email</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/tel">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/tel</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/required">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/required</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="page-footer">
+      <p>No input values are sent, stored, logged, or displayed.</p>
+    </footer>
+  </body>
+</html>

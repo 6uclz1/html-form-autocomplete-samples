@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Account Registration Samples</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+    <script src="../assets/main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../index.html">HTML Form Autofill Samples</a>
+        <nav class="site-nav" aria-label="Sample pages">
+          <a href="contact.html">Contact</a>
+          <a href="account-login.html">Login</a>
+          <a href="account-register.html">Register</a>
+          <a href="password-change.html">Password</a>
+          <a href="payment.html">Payment</a>
+          <a href="otp.html">OTP</a>
+          <a href="serial-number.html">Serial</a>
+          <a href="all-in-one.html">All</a>
+        </nav>
+      </div>
+    </header>
+    <main class="page">
+      <section class="section">
+        <h1>アカウント作成フォーム</h1>
+        <div class="warning">
+          <p>このサイトはHTMLフォーム属性の学習用サンプルです。実際のメールアドレス、電話番号、クレジットカード番号、パスワード、OTPを入力しないでください。入力内容は送信・保存されません。</p>
+        </div>
+        <p class="lede">新規作成では、ログイン名には <code>username</code>、作成するパスワードには <code>new-password</code> を使います。</p>
+      </section>
+
+      <section class="sample-card" aria-labelledby="register-form-title">
+        <div>
+          <h2 id="register-form-title">試せるフォーム</h2>
+          <form autocomplete="on">
+            <div class="form-grid">
+              <div class="field">
+                <label for="username">ユーザー名 <span class="required-marker" aria-hidden="true">*</span></label>
+                <input id="username" name="username" type="text" autocomplete="username" required>
+              </div>
+              <div class="field">
+                <label for="email">メールアドレス <span class="required-marker" aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label for="new-password">新しいパスワード <span class="required-marker" aria-hidden="true">*</span></label>
+                <input id="new-password" name="new-password" type="password" autocomplete="new-password" minlength="12" required aria-describedby="new-password-help">
+                <p id="new-password-help" class="help">12文字以上の例です。複雑すぎるパターンは避けます。</p>
+              </div>
+              <div class="field">
+                <label for="confirm-password">新しいパスワード（確認） <span class="required-marker" aria-hidden="true">*</span></label>
+                <input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" minlength="12" required aria-describedby="confirm-password-help">
+                <p id="confirm-password-help" class="help">確認欄にも <code>new-password</code> を使います。</p>
+              </div>
+            </div>
+            <button type="submit">入力内容を確認</button>
+            <p class="result" data-form-result role="status" aria-live="polite"></p>
+          </form>
+        </div>
+        <div>
+          <h2>推奨HTML</h2>
+          <pre><code>&lt;input id="new-password" name="new-password" type="password" autocomplete="new-password" minlength="12" required&gt;
+&lt;input id="confirm-password" name="confirm-password" type="password" autocomplete="new-password" minlength="12" required&gt;</code></pre>
+        </div>
+        <div>
+          <h2>属性の意味と注意点</h2>
+          <ul class="attribute-list">
+            <li><code>new-password</code> はブラウザーやパスワードマネージャーの生成支援対象になり得ます。</li>
+            <li><code>minlength</code> は最低文字数を示す簡潔な制約として使います。</li>
+            <li>このサンプルでは確認欄との一致検証は行わず、値も保存しません。</li>
+          </ul>
+        </div>
+        <div>
+          <h2>MDN URL</h2>
+          <ul class="source-list">
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/password">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/password</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/minlength">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/minlength</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/required">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/required</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="page-footer">
+      <p>No input values are sent, stored, logged, or displayed.</p>
+    </footer>
+  </body>
+</html>

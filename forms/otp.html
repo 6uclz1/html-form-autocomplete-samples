@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OTP Form Samples</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+    <script src="../assets/main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../index.html">HTML Form Autofill Samples</a>
+        <nav class="site-nav" aria-label="Sample pages">
+          <a href="contact.html">Contact</a>
+          <a href="account-login.html">Login</a>
+          <a href="account-register.html">Register</a>
+          <a href="password-change.html">Password</a>
+          <a href="payment.html">Payment</a>
+          <a href="otp.html">OTP</a>
+          <a href="serial-number.html">Serial</a>
+          <a href="all-in-one.html">All</a>
+        </nav>
+      </div>
+    </header>
+    <main class="page">
+      <section class="section">
+        <h1>ワンタイムコードフォーム</h1>
+        <div class="warning">
+          <p>このサイトはHTMLフォーム属性の学習用サンプルです。実際のメールアドレス、電話番号、クレジットカード番号、パスワード、OTPを入力しないでください。入力内容は送信・保存されません。</p>
+        </div>
+        <p class="lede">OTP は保存対象のパスワードではないため、<code>current-password</code> や <code>new-password</code> ではなく <code>one-time-code</code> を使います。</p>
+      </section>
+
+      <section class="sample-card" aria-labelledby="otp-form-title">
+        <div>
+          <h2 id="otp-form-title">試せるフォーム</h2>
+          <form autocomplete="on">
+            <div class="form-grid">
+              <div class="field">
+                <label for="otp">ワンタイムコード <span class="required-marker" aria-hidden="true">*</span></label>
+                <input id="otp" name="otp" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required aria-describedby="otp-help" title="6桁の数字を入力してください">
+                <p id="otp-help" class="help">6桁の数字を入力してください。SMS、メール、認証アプリなどから受け取るコードの例です。</p>
+              </div>
+            </div>
+            <button type="submit">入力内容を確認</button>
+            <p class="result" data-form-result role="status" aria-live="polite"></p>
+          </form>
+        </div>
+        <div>
+          <h2>推奨HTML</h2>
+          <pre><code>&lt;input id="otp" name="otp" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required&gt;</code></pre>
+        </div>
+        <div>
+          <h2>属性の意味と注意点</h2>
+          <ul class="attribute-list">
+            <li><code>autocomplete="one-time-code"</code> はサインインフローで受け取る一時コードを示します。</li>
+            <li><code>inputmode="numeric"</code> は数字向けキーボードを示唆します。</li>
+            <li><code>pattern</code> を使うため、近くの可視テキストと <code>title</code> で形式を説明します。</li>
+          </ul>
+        </div>
+        <div>
+          <h2>MDN URL</h2>
+          <ul class="source-list">
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/inputmode">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/inputmode</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pattern">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pattern</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Constraint_validation">https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Constraint_validation</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="page-footer">
+      <p>No input values are sent, stored, logged, or displayed.</p>
+    </footer>
+  </body>
+</html>

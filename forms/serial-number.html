@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Serial Number Form Samples</title>
+    <link rel="stylesheet" href="../assets/styles.css">
+    <script src="../assets/main.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../index.html">HTML Form Autofill Samples</a>
+        <nav class="site-nav" aria-label="Sample pages">
+          <a href="contact.html">Contact</a>
+          <a href="account-login.html">Login</a>
+          <a href="account-register.html">Register</a>
+          <a href="password-change.html">Password</a>
+          <a href="payment.html">Payment</a>
+          <a href="otp.html">OTP</a>
+          <a href="serial-number.html">Serial</a>
+          <a href="all-in-one.html">All</a>
+        </nav>
+      </div>
+    </header>
+    <main class="page">
+      <section class="section">
+        <h1>シリアル番号・ライセンスキー</h1>
+        <div class="warning">
+          <p>このサイトはHTMLフォーム属性の学習用サンプルです。実際のメールアドレス、電話番号、クレジットカード番号、パスワード、OTPを入力しないでください。入力内容は送信・保存されません。</p>
+        </div>
+        <p class="lede">MDN の <code>autocomplete</code> トークン一覧には、汎用的なシリアル番号・ライセンスキー用の標準トークンはありません。誤ったトークンを当てず、<code>autocomplete="off"</code> または属性省略を検討します。</p>
+      </section>
+
+      <section class="sample-card" aria-labelledby="serial-form-title">
+        <div>
+          <h2 id="serial-form-title">試せるフォーム</h2>
+          <form autocomplete="on">
+            <div class="form-grid">
+              <div class="field">
+                <label for="serial-number">シリアル番号</label>
+                <input id="serial-number" name="serial-number" type="text" autocomplete="off" spellcheck="false" autocapitalize="characters" pattern="[A-Z0-9-]{8,39}" aria-describedby="serial-number-help" title="英大文字、数字、ハイフンで入力してください">
+                <p id="serial-number-help" class="help">英大文字、数字、ハイフンで入力してください。標準自動入力トークンはないため、自動入力は保証しません。</p>
+              </div>
+            </div>
+            <button type="submit">入力内容を確認</button>
+            <p class="result" data-form-result role="status" aria-live="polite"></p>
+          </form>
+        </div>
+        <div>
+          <h2>推奨HTML</h2>
+          <pre><code>&lt;input id="serial-number" name="serial-number" type="text" autocomplete="off" spellcheck="false" autocapitalize="characters" pattern="[A-Z0-9-]{8,39}"&gt;</code></pre>
+        </div>
+        <div>
+          <h2>属性の意味と注意点</h2>
+          <ul class="attribute-list">
+            <li>標準のシリアル番号用 <code>autocomplete</code> トークンは確認できないため、無関係なトークンは使いません。</li>
+            <li><code>spellcheck="false"</code> でスペルチェックの干渉を避けます。</li>
+            <li><code>pattern</code> を使う場合は、入力形式を近接テキストと <code>title</code> で説明します。</li>
+          </ul>
+        </div>
+        <div>
+          <h2>MDN URL</h2>
+          <ul class="source-list">
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete</a></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pattern">https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pattern</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer class="page-footer">
+      <p>No input values are sent, stored, logged, or displayed.</p>
+    </footer>
+  </body>
+</html>
