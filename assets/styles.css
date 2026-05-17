@@ -1,17 +1,18 @@
 :root {
   color-scheme: light;
-  --bg: #f7f4ee;
+  --bg: #f8fbff;
   --surface: #ffffff;
-  --surface-soft: #f1f6f8;
-  --ink: #1e2428;
-  --muted: #5d6870;
-  --line: #cfd8dc;
-  --accent: #00796b;
-  --accent-strong: #00564b;
-  --warn-bg: #fff4d7;
-  --warn-line: #d4a941;
+  --surface-soft: #f3f7fc;
+  --ink: #0f213b;
+  --muted: #5f6f85;
+  --line: #d9e2ef;
+  --accent: #1263e6;
+  --accent-strong: #084fce;
+  --warn-bg: #fff8e8;
+  --warn-line: #ffaf3d;
   --code-bg: #172126;
   --code-ink: #e6f0f2;
+  --shadow: 0 10px 30px rgba(18, 45, 86, 0.08);
 }
 
 * {
@@ -306,5 +307,346 @@ th {
 
   .visual-map {
     margin-top: 18px;
+  }
+}
+
+.compact-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom-color: #e8edf5;
+  box-shadow: 0 1px 0 rgba(15, 33, 59, 0.04);
+}
+
+.compact-header .header-inner {
+  max-width: 760px;
+}
+
+.compact-header .brand {
+  font-size: 1.08rem;
+}
+
+.compact-header .site-nav {
+  font-weight: 700;
+}
+
+.menu-button {
+  display: none;
+  width: 42px;
+  min-height: 42px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.mobile-sample-page {
+  max-width: 760px;
+  padding-top: 18px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+.breadcrumb a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.compact-warning {
+  border-left-width: 1px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(255, 175, 61, 0.12);
+}
+
+.compact-warning p {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 0;
+  font-weight: 700;
+}
+
+.compact-warning span {
+  color: #f59f00;
+}
+
+.mobile-intro-card,
+.mobile-field-card,
+.mobile-link-list a,
+.mobile-info-card,
+.compact-doc-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow);
+}
+
+.mobile-intro-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 20px;
+  align-items: center;
+  padding: 22px;
+  margin-bottom: 18px;
+}
+
+.intro-icon {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #eaf2ff;
+  color: var(--accent);
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.mobile-intro-card h1 {
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+.mobile-intro-card p {
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+
+.pill-row {
+  margin: 0;
+}
+
+.blue-pill,
+.tag-row span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border-radius: 999px;
+  background: #eef3fb;
+  color: #4c5e74;
+  padding: 2px 12px;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.blue-pill {
+  background: #e8f1ff;
+  color: var(--accent);
+}
+
+.mobile-form-panel form {
+  display: grid;
+  gap: 12px;
+}
+
+.mobile-field-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 14px;
+  padding: 16px 18px 14px;
+}
+
+.step-badge {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #e9f2ff;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.field-body {
+  min-width: 0;
+}
+
+.field-body label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+.line-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.field-body input {
+  min-height: 42px;
+  border-color: #d5deea;
+  border-radius: 7px;
+  background: #fff;
+  color: #27364b;
+  box-shadow: inset 0 1px 2px rgba(15, 33, 59, 0.04);
+}
+
+.field-body input::placeholder {
+  color: #8290a5;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 0;
+  font-size: 0.88rem;
+}
+
+.sr-compact {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.confirm-button {
+  margin-top: 4px;
+  border-radius: 7px;
+}
+
+.mobile-link-list {
+  display: grid;
+  gap: 9px;
+  margin-top: 14px;
+}
+
+.mobile-link-list a {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  min-height: 68px;
+  padding: 12px 14px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.mobile-link-list strong {
+  display: block;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.mobile-link-list span:nth-child(2) {
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.35;
+}
+
+.list-icon,
+.info-dot {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.mobile-info-card {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 12px;
+  margin: 14px 0 18px;
+  padding: 16px;
+  border-color: #cfe1fb;
+  background: linear-gradient(180deg, #f8fbff, #eef6ff);
+}
+
+.info-dot {
+  background: var(--accent);
+  color: #fff;
+}
+
+.mobile-info-card h2 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+}
+
+.mobile-info-card p {
+  margin: 0 0 6px;
+  color: var(--muted);
+}
+
+.compact-doc-card {
+  margin-bottom: 14px;
+}
+
+.compact-footer {
+  border-top: 0;
+  background: var(--bg);
+  font-size: 0.85rem;
+}
+
+.compact-footer p {
+  max-width: 760px;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 761px) {
+  .mobile-sample-page {
+    padding-bottom: 72px;
+  }
+}
+
+@media (max-width: 760px) {
+  .compact-header .header-inner {
+    display: flex;
+    width: min(100% - 32px, 640px);
+    padding: 14px 0;
+  }
+
+  .compact-header .site-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: grid;
+    place-items: center;
+  }
+
+  .mobile-sample-page {
+    width: min(100% - 32px, 640px);
+    padding-top: 14px;
+  }
+
+  .mobile-intro-card {
+    grid-template-columns: 72px minmax(0, 1fr);
+    padding: 18px;
+  }
+
+  .mobile-intro-card h1 {
+    font-size: 1.32rem;
+  }
+
+  .field-body label {
+    font-size: 1.08rem;
+  }
+
+  .mobile-field-card {
+    grid-template-columns: 38px minmax(0, 1fr);
+    padding: 14px 14px 12px;
   }
 }

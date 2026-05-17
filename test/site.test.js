@@ -128,14 +128,22 @@ test("forms use explicit labels, names, ids, autocomplete, and submit buttons", 
 });
 
 test("canonical sample inputs use expected autocomplete tokens and keyboard hints", () => {
-  const document = parseHtml("forms/all-in-one.html");
-  const inputsById = new Map(
-    walk(document, (node) => node.nodeName === "input").map((input) => [attrs(input).id, attrs(input)])
-  );
+  const inputsById = new Map();
+
+  for (const page of pages.filter((path) => path !== "index.html")) {
+    const document = parseHtml(page);
+
+    for (const input of walk(document, (node) => node.nodeName === "input")) {
+      const inputAttrs = attrs(input);
+      if (!inputsById.has(inputAttrs.id)) {
+        inputsById.set(inputAttrs.id, inputAttrs);
+      }
+    }
+  }
 
   for (const [id, expectation] of expectedInputs) {
     const inputAttrs = inputsById.get(id);
-    assert.ok(inputAttrs, `all-in-one should include #${id}`);
+    assert.ok(inputAttrs, `site should include #${id}`);
 
     for (const [name, value] of Object.entries(expectation)) {
       assert.equal(inputAttrs[name], value, `#${id} should set ${name}="${value}"`);
