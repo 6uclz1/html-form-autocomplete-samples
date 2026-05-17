@@ -3,85 +3,123 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HTML Form Autofill Samples</title>
+    <title>HTML入力フォーム サンプルサイト</title>
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/main.js" defer></script>
   </head>
-  <body>
-    <header class="site-header">
+  <body class="home-layout">
+    <header class="site-header home-header">
       <div class="header-inner">
-        <a class="brand" href="index.html">HTML Form Autofill Samples</a>
-        <nav class="site-nav" aria-label="Sample pages">
-          <a href="forms/contact.html">Contact</a>
-          <a href="forms/account-login.html">Login</a>
-          <a href="forms/account-register.html">Register</a>
-          <a href="forms/password-change.html">Password</a>
-          <a href="forms/payment.html">Payment</a>
-          <a href="forms/otp.html">OTP</a>
-          <a href="forms/serial-number.html">Serial</a>
-          <a href="forms/all-in-one.html">All</a>
+        <a class="brand" href="index.html">HTML入力フォーム サンプルサイト</a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a class="active" href="index.html">ホーム</a>
+          <a href="forms/all-in-one.html">フォーム一覧</a>
+          <a href="docs/test-matrix.md">テスト観点</a>
+          <a href="https://github.com/6uclz1/html-form-autocomplete-samples">GitHub</a>
         </nav>
       </div>
     </header>
 
-    <main class="page">
-      <section class="hero">
-        <div>
-          <h1>HTML入力フォームの正しい使い方を試す静的サンプル</h1>
-          <p class="lede">メール、電話番号、ログイン、パスワード、OTP、クレジットカード、シリアル番号について、標準の <code>type</code>、<code>autocomplete</code>、<code>inputmode</code>、<code>pattern</code>、<code>required</code>、<code>label</code> を組み合わせた例を確認できます。</p>
-          <div class="warning">
-            <p>このサイトはHTMLフォーム属性の学習用サンプルです。実際のメールアドレス、電話番号、クレジットカード番号、パスワード、OTPを入力しないでください。入力内容は送信・保存されません。</p>
+    <main class="page home-page">
+      <div class="warning home-warning">
+        <p><span aria-hidden="true">▲</span> 学習用サンプルです。実際のメールアドレス、電話番号、クレジットカード番号、パスワード、OTPを入力しないでください。入力内容は送信・保存されません。</p>
+      </div>
+
+      <section class="home-hero" aria-labelledby="home-title">
+        <div class="home-hero-copy">
+          <h1 id="home-title">正しいHTML入力フォームで、オートフィルをすべてのユーザーに</h1>
+          <p>iOS、Android、macOS、Windows、Chrome でオートフィルが最適に動作する入力フィールドの実装パターンを、実例とともに学べます。</p>
+          <div class="home-actions">
+            <a class="primary-action" href="forms/all-in-one.html">サンプルを見る</a>
+            <a class="secondary-action" href="#mdn-sources">MDNについて</a>
           </div>
-          <p>ブラウザー、OS、保存済みプロファイル、パスワードマネージャー、決済情報の保存状態、ユーザー設定によって、実際の自動入力挙動は変わります。このサイトの目的は、各プラットフォームが自動入力しやすい標準的なHTMLを提示することです。</p>
         </div>
-        <div class="visual-map">
-          <div class="mock-field">
-            <span>email</span>
-            <code>&lt;input type="email" autocomplete="email"&gt;</code>
+        <div class="html-example-card">
+          <div class="example-header">
+            <strong>HTMLの例</strong>
+            <span>コピー</span>
           </div>
-          <div class="mock-field">
-            <span>password</span>
-            <code>&lt;input type="password" autocomplete="current-password"&gt;</code>
-          </div>
-          <div class="mock-field">
-            <span>payment</span>
-            <code>&lt;input type="text" inputmode="numeric" autocomplete="cc-number"&gt;</code>
-          </div>
+          <pre><code>&lt;label for="email"&gt;メールアドレス&lt;/label&gt;
+&lt;input
+  type="email"
+  id="email"
+  name="email"
+  autocomplete="email"
+  required
+&gt;</code></pre>
+          <p>適切な <code>type</code> と <code>autocomplete</code> を指定することで、ブラウザーのオートフィルが正しく動作します。</p>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="pages-title">
-        <h2 id="pages-title">サンプルページ</h2>
-        <div class="link-grid">
-          <a class="link-card" href="forms/contact.html">氏名、メール、電話番号</a>
-          <a class="link-card" href="forms/account-login.html">ログインIDと現在のパスワード</a>
-          <a class="link-card" href="forms/account-register.html">アカウント作成と新しいパスワード</a>
-          <a class="link-card" href="forms/password-change.html">パスワード変更</a>
-          <a class="link-card" href="forms/payment.html">クレジットカードと請求先・配送先</a>
-          <a class="link-card" href="forms/otp.html">ワンタイムコード</a>
-          <a class="link-card" href="forms/serial-number.html">シリアル番号・ライセンスキー</a>
-          <a class="link-card" href="forms/all-in-one.html">すべてのフォーム一覧</a>
+      <section class="home-samples" aria-labelledby="samples-title">
+        <h2 id="samples-title">サンプル一覧</h2>
+        <div class="home-card-grid">
+          <a class="home-link-card" href="forms/contact.html"><span class="home-card-icon">○</span><span><strong>連絡先フォーム</strong>氏名、メールアドレス、電話番号などの基本的な連絡先情報。</span><span aria-hidden="true">›</span></a>
+          <a class="home-link-card" href="forms/account-login.html"><span class="home-card-icon">▣</span><span><strong>ログイン</strong>メールアドレスとパスワードでログインするフォーム。</span><span aria-hidden="true">›</span></a>
+          <a class="home-link-card" href="forms/account-register.html"><span class="home-card-icon">＋</span><span><strong>新規登録</strong>アカウント作成に必要な情報を入力するフォーム。</span><span aria-hidden="true">›</span></a>
+          <a class="home-link-card" href="forms/password-change.html"><span class="home-card-icon">◇</span><span><strong>パスワード変更</strong>現在のパスワードと新しいパスワードを設定するフォーム。</span><span aria-hidden="true">›</span></a>
+          <a class="home-link-card" href="forms/payment.html"><span class="home-card-icon">▤</span><span><strong>決済フォーム</strong>クレジットカード情報など、決済に関する入力フォーム。</span><span aria-hidden="true">›</span></a>
+          <a class="home-link-card" href="forms/otp.html"><span class="home-card-icon">◇</span><span><strong>ワンタイムコード</strong>SMSやメールで受け取ったワンタイムコードの入力。</span><span aria-hidden="true">›</span></a>
+          <a class="home-link-card" href="forms/serial-number.html"><span class="home-card-icon">|||</span><span><strong>シリアル番号</strong>製品のシリアル番号やライセンスキーの入力。</span><span aria-hidden="true">›</span></a>
+          <a class="home-link-card" href="forms/all-in-one.html"><span class="home-card-icon">▦</span><span><strong>All-in-One</strong>複数のフォーム要素をまとめて確認できる総合サンプル。</span><span aria-hidden="true">›</span></a>
         </div>
       </section>
 
-      <section class="section" aria-labelledby="sources-title">
-        <h2 id="sources-title">主要なMDN出典</h2>
-        <ul class="source-list">
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete">autocomplete HTML attribute - MDN</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/email">input type="email" - MDN</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/tel">input type="tel" - MDN</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/password">input type="password" - MDN</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/inputmode">inputmode global attribute - MDN</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pattern">pattern HTML attribute - MDN</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/required">required HTML attribute - MDN</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label">label HTML element - MDN</a></li>
-          <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Constraint_validation">Constraint validation - MDN</a></li>
-        </ul>
+      <section class="home-bottom-grid" aria-label="Summary sections">
+        <div class="home-table-card">
+          <h2>主要項目と推奨属性</h2>
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">項目</th>
+                <th scope="col">type</th>
+                <th scope="col">autocomplete</th>
+                <th scope="col">補足</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>メールアドレス</td><td>email</td><td>email</td><td>メールアドレス用のキーボードとオートフィル候補を表示。</td></tr>
+              <tr><td>電話番号</td><td>tel</td><td>tel</td><td>国際形式にも対応。<code>inputmode="tel"</code> の指定も推奨。</td></tr>
+              <tr><td>現在のパスワード</td><td>password</td><td>current-password</td><td>保存済みのパスワードを自動入力。</td></tr>
+              <tr><td>新しいパスワード</td><td>password</td><td>new-password</td><td>新しく作成するパスワードであることを示す。</td></tr>
+              <tr><td>ワンタイムコード</td><td>text</td><td>one-time-code</td><td>SMSやメールからの自動入力をサポート。</td></tr>
+              <tr><td>カード番号</td><td>text</td><td>cc-number</td><td>カード番号は数量ではないため <code>number</code> は使わない。</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="home-learn-card">
+          <h2>このサイトで学べること</h2>
+          <ul>
+            <li><span class="home-card-icon">◇</span><span><strong>ラベル（label）の正しい使い方</strong>ユーザー補助とタップ領域の拡大で入力しやすくなります。</span></li>
+            <li><span class="home-card-icon">○</span><span><strong>autocomplete の最適な指定</strong>ブラウザーが適切に情報を補完できるようにします。</span></li>
+            <li><span class="home-card-icon">▤</span><span><strong>inputmode の活用</strong>モバイルで適切なキーボードを表示します。</span></li>
+            <li><span class="home-card-icon">✓</span><span><strong>pattern と required の適切な組み合わせ</strong>入力ミスを減らし、バリデーションを強化します。</span></li>
+          </ul>
+        </div>
       </section>
+
+      <section class="home-source-band" id="mdn-sources" aria-labelledby="sources-title">
+        <h2 id="sources-title">参考リンク（MDN）</h2>
+        <div class="home-source-links">
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/email">HTML input 要素</a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete">autocomplete 属性</a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/inputmode">inputmode 属性</a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/pattern">pattern 属性</a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/required">required 属性</a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/label">label 要素</a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/tel">input type="tel"</a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/password">input type="password"</a>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Constraint_validation">フォームの使い方ガイド</a>
+        </div>
+      </section>
+
+      <p class="home-context">ブラウザー、OS、保存済みプロファイル、パスワードマネージャー、決済情報の保存状態、ユーザー設定によって、実際の自動入力挙動は変わります。</p>
     </main>
 
-    <footer class="page-footer">
-      <p>Static sample site. No input values are sent, stored, logged, or displayed.</p>
+    <footer class="page-footer home-footer">
+      <p>© 2024 HTML入力フォーム サンプルサイト</p>
+      <p>このサイトは学習用の静的サンプルです。入力内容は送信・保存されません。</p>
     </footer>
   </body>
 </html>
